@@ -59,6 +59,10 @@ jobs:
         #
         # TODO scan the GPU base image
         # ${{ steps.grype.outputs.cmd }} docker:ghcr.io/open-flux-ai/serve/llama-cpp-python:${IMAGE}-gpu
+    - name: Free disk space
+      shell: bash
+      run: |
+        ./scripts/free_disk_space.sh
     - name: Build Flux Func 13B GPU
       id: build-flux-func-13b
       run: |
